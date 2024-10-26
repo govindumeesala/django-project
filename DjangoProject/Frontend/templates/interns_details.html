@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>All intern details</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Intern ID
+                </th>
+                <th>
+                    Intern Name
+                </th>
+                <th>
+                    Intern Salary
+                </th>
+                <th>
+                    Update
+                </th>
+                <th>
+                    Delete
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+                {% for i in interns_details %}
+                <tr>
+                    <td>{{i.Intern_name}}</td>
+                    <td>{{i.Intern_id}}</td>
+                    <td>{{i.Intern_salary}}</td>
+                    <td><a href="{% url 'intern_update' i.id %}"><button>Update</button></a></td>
+                    <td><a href="{% url 'intern_delete' i.id %}"><button>Delete</button></a></td>
+                </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
